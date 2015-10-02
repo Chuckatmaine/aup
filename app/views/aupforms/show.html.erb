@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @aupform.userid %>
+</p>
+
+<p>
+  <strong>Aupaccept:</strong>
+  <%= @aupform.aupaccept %>
+</p>
+
+<p>
+  <strong>Acceptdate:</strong>
+  <%= @aupform.acceptdate %>
+</p>
+
+<%= link_to 'Edit', edit_aupform_path(@aupform) %> |
+<%= link_to 'Back', aupforms_path %>

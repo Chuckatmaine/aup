@@ -1,0 +1,27 @@
+
+<%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    I agree to the terms of the Acceptable Use Policy
+    Signed: <%= @user.firstname.gsub!(/[^0-9a-z ]/i, '') %> <%= @user.lastname.gsub!(/[^0-9a-z ]/i, '') %> 
+  </div>
+  <div class="field">
+    <br><br><%= f.label "I agree " %>
+    <%= f.check_box :aupaccepted %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit "Confirm" %>
+  </div>
+<% end %>

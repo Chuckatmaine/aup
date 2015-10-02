@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>AUP accepted</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Student ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.aupaccepted %></td>
+        <td><%= user.firstname.gsub!(/[^0-9a-z ]/i, '') %></td>
+        <td><%= user.lastname.gsub!(/[^0-9a-z ]/i, '')  %></td>
+        <% if user.studentid %>
+            <td><%= user.studentid.gsub!(/[^0-9a-z ]/i, '')  %></td>
+        <% else %>
+            <td><%= user.studentid %></td>
+        <% end %>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Home', root_url  %>

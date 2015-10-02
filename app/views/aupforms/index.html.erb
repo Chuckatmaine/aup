@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aupforms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>Aupaccept</th>
+      <th>Acceptdate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aupforms.each do |aupform| %>
+      <tr>
+        <td><%= aupform.userid %></td>
+        <td><%= aupform.aupaccept %></td>
+        <td><%= aupform.acceptdate %></td>
+        <td><%= link_to 'Show', aupform %></td>
+        <td><%= link_to 'Edit', edit_aupform_path(aupform) %></td>
+        <td><%= link_to 'Destroy', aupform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aupform', new_aupform_path %>
